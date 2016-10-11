@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>world map</title>
+	<link href="icon/icon.ico" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<header>
+		<h2 class="title">World Map</h2>
+	</header>
+	<div id="container"></div>
+
+<script type="text/javascript" src="js/d3.v3.min.js"></script>	
+<script type="text/javascript" src="js/topojson.v1.min.js"></script>
+<script type="text/javascript" src="js/datamaps.world.js"></script>
+<script type="text/javascript">
+	//自定义颜色
+	var defaultColor="#9bb5d4";
+	var originColor="#00e3ae";
+	var destinationColor="#f95050";
+	//basic map config with custom fills, mercator projection
+	var map = new Datamap({ 
+        scope: 'world',
+        element: document.getElementById('container'),
+        bubblesConfig: {
+          highlightFillColor: "#0087c4",
+          highlightBorderWidth: 0
+  		},
+        projection: 'mercator',
+        height: 1000,
+        fills: {
+          defaultFill: defaultColor,
+          lt50: originColor,
+          gt50: destinationColor
+        },
+        
+        data: {
+          USA: {fillKey: 'defaultFill' },
+          RUS: {fillKey: 'defaultFill' },
+          CAN: {fillKey: 'defaultFill' },
+          BRA: {fillKey: 'defaultFill' },
+          ARG: {fillKey: 'defaultFill'},
+          COL: {fillKey: 'defaultFill' },
+          AUS: {fillKey: 'defaultFill' },
+          ZAF: {fillKey: 'defaultFill' },
+          MAD: {fillKey: 'defaultFill' }       
+        }
+      })
+      
+      //sample of the arc plugin
+      map.arc([
+      {
+          origin: {
+              latitude: 40,
+              longitude: -73
+          },
+          destination: {
+              latitude: 31,
+              longitude: 121
+          }
+      },
+      {
+          origin: {
+              latitude: 51,
+              longitude: 0
+          },
+          destination: {
+              latitude: 31,
+              longitude: 121
+          }
+      },
+      {
+          origin: {
+              latitude: 39,
+              longitude: 116
+          },
+          destination: {
+              latitude: 36,
+              longitude: -115
+          }
+      }
+      ], {strokeWidth: 2,strokeColor: "00bcde"});
+       
+      
+       //bubbles, custom popup on hover template
+     map.bubbles([
+       {name: '纽约', latitude: 40, longitude: -73, radius: 6, fillKey: "lt50"},
+       {name: '伦敦', latitude: 51, longitude: 0, radius: 6, fillKey: "lt50"},
+       {name: '上海', latitude: 31, longitude: 121, radius: 6, fillKey: "gt50"},
+       {name: '北京', latitude: 39, longitude: 116, radius: 6, fillKey: "lt50"},
+       {name: '拉斯维加斯', latitude: 36, longitude: -115, radius: 6, fillKey: "gt50"}
+
+     ], {
+       popupTemplate: function(geo, data) {
+         return "<div class='hoverinfo'>" + data.name + "</div>";
+       }
+     });
+</script>
+</body>
+</html>
