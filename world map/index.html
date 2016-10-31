@@ -10,6 +10,24 @@
 	<header id="titleContainer"></header>
 	<div id="container"></div>
   <div id="attackers"></div>
+  <div id="industries"></div>
+  <div id="links">
+    <div class="link link1">
+      <a href="#"><img src="images/link1.png"></a>
+    </div>
+    <div class="clear"></div>
+    <div class="link link2">
+      <a href="#"><img src="images/link2.png"></a>
+    </div>
+    <div class="clear"></div>
+    <div class="link link3">
+      <a href="#"><img src="images/link3.png"></a>
+    </div>
+    <div class="clear"></div>
+    <div class="link link4">
+      <a href="#"><img src="images/link4.png"></a>
+    </div>
+  </div>
 
 <script type="text/javascript" src="js/d3.v3.min.js"></script>	
 <script type="text/javascript" src="js/topojson.v1.min.js"></script>
@@ -132,11 +150,46 @@
     }
   });
   var Infomation=React.createClass({
+    getInitialState:function(){
+      return {bottom:0};
+    },
+    handleClick:function(){
+      this.setState({bottom:(this.state.bottom==-260)?(0):(-260)});
+    },
     render:function(){
       return (
-        <div className="infoContainer">
-          <div className="infoTitle">Attack</div>
-          <div className="infoContent"></div>
+        <div className="infoContainer" style={{bottom:this.state.bottom}}>
+          <div className="infoTitle" onClick={this.handleClick}>Attackers</div>
+          <div className="infoContent">
+            <div className="itemAttackers">[X] NEW ATTACK:FROM [TURKEY] TO [UNITED STATES]</div>
+            <div className="itemAttackers">[X] NEW ATTACK:FROM [COLOMBIA] TO [CHILE]</div>
+            <div className="itemAttackers">[X] NEW ATTACK:FROM [MALAYSIA] TO [THAILAND]</div>
+            <div className="itemAttackers">[X] NEW ATTACK:FROM [INDONISIA] TO [TAIWAN]</div>
+            <div className="itemAttackers">[X] NEW ATTACK:FROM [CHILE] TO [TURKEY]</div>
+            <div className="itemAttackers">[X] NEW ATTACK:FROM [UNITED STATES] TO [INDONISIA]</div>
+          </div>
+        </div>
+      );
+    }
+  });
+  var AnotherInfomation=React.createClass({
+    getInitialState:function(){
+      return {bottom:0};
+    },
+    handleClick:function(){
+      this.setState({bottom:(this.state.bottom==-260)?(0):(-260)});
+    },
+    render:function(){
+      return (
+        <div className="infoContainer industries" style={{bottom:this.state.bottom}}>
+          <div className="infoTitle" onClick={this.handleClick}>TOP 5 Reported Industries</div>
+          <div className="infoContent">
+            <div className="itemIndustries">FINANCIAL SERVICES</div>
+            <div className="itemIndustries">SERVICES/CONSULTING</div>
+            <div className="itemIndustries">TELECOM</div>
+            <div className="itemIndustries">MANUFACTURING</div>
+            <div className="itemIndustries">INSURANCE</div>
+          </div>
         </div>
       );
     }
@@ -148,6 +201,10 @@
   ReactDOM.render(
     <Infomation/>,
     document.getElementById('attackers')
+  );
+  ReactDOM.render(
+    <AnotherInfomation/>,
+    document.getElementById('industries')
   );
 </script>
 </body>

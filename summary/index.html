@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>answer</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-family: "Microsoft YaHei";
+			color: #666;
+		}
+		header{
+			width: 100%;
+			height: 80px;
+			background-color: #389CC5;
+			color: #fff;
+		}
+		header .title-container{
+			width: 1200px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		header .title-container h1{
+			line-height: 80px;
+		}
+		main{
+			width: 100%;
+			height: auto;
+			background-color: #eee;
+		}
+		main .main-container{
+			width: 1200px;
+			height: auto;
+			margin: 0 auto;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		main .main-container article{
+			width: 100%;
+			height: auto;
+			background-color: #fff;
+			margin-bottom: 20px;
+			box-shadow: 0 0 10px #999;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		main .main-container article h2{
+			height: 40px;
+			line-height: 40px;
+			padding-left: 20px;
+		}
+		main .main-container article h3{
+			height: 30px;
+			line-height: 30px;
+			padding-left: 20px;
+		}
+		main .main-container article .content{
+			height: 30px;
+			font-size: 16px;
+			line-height: 30px;
+			padding-left: 20px;
+		}
+		main .main-container article .example{
+			width: auto;
+			height: auto;
+			padding: 20px;
+			background-color: #B8DEE4;
+			margin-top: 10px;
+			margin-bottom: -10px;
+		}
+		button{
+			padding: 5px 15px;
+			border-radius: 5px;
+			border: 2px solid #009CF1;
+			background-color: rgba(0,156,241,0);
+			color: #009CF1;
+			font-size: 16px;
+			transition: 0.2s;
+			cursor: pointer;
+		}
+		button:focus{
+			outline: none;
+		}
+		button:hover{
+			background-color: rgba(0,156,241,1);
+			color: #fff;
+		}
+		.example-content{
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.outer-clear{
+			padding: 10px;
+			background-color: #bbb;
+		}
+		.inner-clear{
+			width: 100px;
+			height: 100px;
+			background-color: #26BCAE;
+			float: left;
+			margin: 10px;
+		}
+		.clear{
+			clear: both;
+		}
+		main .main-container article .no-margin-bottom{
+			margin-bottom: 0;
+		}
+		.outer-clear-2{
+			overflow: hidden;
+		}
+		.outer-clear-3:after{
+			display: block;
+			width: 0;
+			height: 0;
+			content: "`";
+			visibility: hidden;
+			clear: both;
+		}
+		.outer{
+			padding: 10px;
+			background-color: #bbb;
+		}
+		.inner{
+			width: 100px;
+			height: 100px;
+			background-color: #26BCAE;
+			margin: 10px;
+		}
+		.inner-p-r{
+			background-color: #3EB1D8;
+			position: relative;
+			top: -60px;
+			left: 50px;
+		}
+		.outer-p-a{
+			position: relative;
+		}
+		.inner-p-a{
+			background-color: #3EB1D8;
+			position: absolute;
+			top: 10px;
+			left: 120px;
+		}
+		.p-f{
+			width: 50px;
+			height: 50px;
+			background-color: #fff;
+			position: fixed;
+			right: 20px;
+			bottom: 20px;
+		}
+		.p-f a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+			font-size: 16px;
+			color: #004CBC;
+			text-align: center;
+			line-height: 50px;
+		}
+		.outer-m{
+			background-color: #bbb;
+		}
+		.inner-m{
+			width: 100px;
+			height: 50px;
+			background-color: #26BCAE;
+			margin: 10px;
+			list-style: none;
+		}
+		.outer-h{
+			height: 200px;
+			background-color: #bbb;
+		}
+		.inner-h{
+			width: 100px;
+			height: 100px;
+			background-color: #26BCAE;
+		}
+		.inner-h-1{
+			margin: 0 auto;
+		}
+		.outer-h-2{
+			position: relative;
+		}
+		.inner-h-2{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -50px;
+			margin-left: -50px;
+		}
+		.outer-h-3{
+			position: relative;
+		}
+		.inner-h-3{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+		.outer span{
+			width: 100px;
+			height: 100px;
+			background-color: #26BCAE;
+			color: #fff;
+			padding: 5px 10px;
+			margin-left: 10px;
+			border: 2px solid #fff;
+		}
+		.inner-f-1{
+			float: left;
+		}
+		.inner-f-2{
+			display: inline-block;
+		}
+		.disapear-1{
+			display: none;
+		}
+		.disapear-2{
+			visibility: hidden;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="title-container">
+			<h1 id="top">Answer</h1>
+		</div>
+	</header>
+	<main>
+		<div class="main-container">
+			<article>
+				<h2>HTML5新标签</h2>
+				<p class="content">&lt;articel&gt;</p>
+				<p class="content">&lt;aside&gt;</p>
+				<p class="content">&lt;audio&gt;</p>
+				<p class="content">&lt;header&gt;</p>
+				<p class="content">&lt;footer&gt;</p>
+				<p class="content">&lt;nav&gt;</p>
+				<p class="content">&lt;figure&gt;</p>
+				<p class="content">&lt;figcaption&gt;</p>
+				<p class="content">&lt;video&gt;</p>
+				<p class="content">&lt;section&gt;</p>
+				<p class="content">&lt;time&gt;</p>
+				<p class="content">&lt;canvas&gt;</p>
+			</article>
+			<article>
+				<h2>行内元素和块级元素</h2>
+				<h3>行内元素</h3>
+				<p class="content">&lt;a&gt;</p>
+				<p class="content">&lt;img&gt;</p>
+				<p class="content">&lt;input&gt;</p>
+				<h3>块级元素</h3>
+				<p class="content">&lt;div&gt;</p>
+				<p class="content">&lt;ul&gt;</p>
+				<p class="content">&lt;table&gt;</p>
+				<h3>区别</h3>
+				<p class="content">1.行内元素在同一行显示，块级元素在不同行显示</p>
+				<p class="content">2.块级元素是其他元素的容器，行内元素不能包含块级元素</p>
+				<p class="content">3.行内元素的width，height，上下margin无法设置</p>
+			</article>
+			<article>
+				<h2>doctype的作用</h2>
+				<p class="content">
+					doctype是一个声明，它指示浏览器使用哪个版本的HTML显示页面
+				</p>
+				<p class="content">
+					HTML4.01中，doctype需要引用DTD（文档类型定义，标记符的语法规则），因为它基于SGML（Standard Generalized Markup Language，标准通用标记语言）
+				</p>
+			</article>
+			<article>
+				<h2>Ajax</h2>
+				<h3>Ajax的工作原理</h3>
+				<p class="content">1.创建XHR（XMLHttpRequest）对象</p>
+				<p class="content">2.向服务器发出请求</p>
+				<p class="content">3.服务器响应</p>
+				<div class="example">
+					<p class="example-content" id="example-ajax">Ajax</p>
+					<p class="example-content">click and change</p>
+					<button class="example-content" onclick="myFunctionAjax()">Submit</button>
+				</div>
+			</article>
+			<article>
+				<h2>HTTP Status Code</h2>
+				<h3>1开头：消息</h3>
+				<h3>2开头：成功</h3>
+				<h3>3开头：重定向</h3>
+				<h3>4开头：请求错误</h3>
+				<h3>5/6开头：服务器错误</h3>
+			</article>
+			<article>
+				<h2>事件冒泡和事件代理</h2>
+				<h3>事件冒泡</h3>
+				<p class="content">子元素的事件被触发，父元素的该事件也被递归执行</p>
+				<h3>事件委托</h3>
+				<p class="content">利用事件冒泡的原理，向父元素传递事件，不用对每个子元素都绑定，提高效率</p>
+				<div class="example">
+					<div class="btn-container">
+						<button class="btn example-content">Submit</button>
+						<button class="btn example-content">Submit</button>
+						<button class="btn example-content">Submit</button>
+						<button class="btn example-content">Submit</button>
+					</div>
+				</div>
+			</article>
+			<article>
+				<h2>==和===的区别</h2>
+				<p class="content">==比较时，会进行数据类型的转换，===比较时会包括数据类型的比较</p>
+				<p class="content">1==true true;1===true false;</p>
+			</article>
+			<article>
+				<h2>JavaScript如何管理内存</h2>
+				<p class="content">1.内存分配</p>
+				<p class="content">2.内存使用</p>
+				<p class="content">3.内存回收</p>
+				<h3>1.引用计数算法</h3>
+				<p class="content">当一个对象没有指向它的引用的时候，内存就会被回收；当两个对象相互引用的时候，尽管不再使用，内存也不会被回收</p>
+				<h3>2.标记清除算法</h3>
+				<p class="content">不能从全局对象出发并触及的对象将会被标记然后进行回收</p>
+			</article>
+			<article>
+				<h2>JavaScript的位元素运算符</h2>
+				<h3>& 转化成二进制按位计算，结果按十进制输出 两个都是1输出1</h3>
+				<h3>| 转化成二进制按位计算，结果按十进制输出 两个其中有1输出1</h3>
+				<h3>^ 转化成二进制按位计算，结果按十进制输出 两个不同输出1</h3>
+			</article>
+			<article>
+				<h2>IIFE(即时执行函数)</h2>
+				<h3>将函数声明变成函数表达式</h3>
+				<p class="content">
+					+function(){}()
+				</p>
+				<p class="content">
+					!function(){}()
+				</p>
+				<p class="content">
+					(function(){})()
+				</p>
+				<p class="content">
+					void function(){}()
+				</p>
+			</article>
+			<article>
+				<h2>add(2)(5)和add(2,5)的输出结果都是7</h2>
+				<div class="example">
+					<p class="example-content">add(2)(5)</p>
+					<p class="example-content" id="add-1">结果</p>
+					<p class="example-content">点击显示结果</p>
+					<button class="example-content" onclick="add(2)(5)">Submit</button>
+					<p class="example-content">add(2,5)</p>
+					<p class="example-content" id="add-2">结果</p>
+					<p class="example-content">点击显示结果</p>
+					<button class="example-content" onclick="add(2,5)">Submit</button>
+				</div>
+			</article>
+			<article>
+				<h2>逆向输出一段字符</h2>
+				<div class="example">
+					<p class="example-content" id="direction">ABC</p>
+					<p class="example-content">点击改变文字的方向</p>
+					<button class="example-content" onclick="myFunctionDirection()">Submit</button>
+				</div>
+			</article>
+			<article>
+				<h2>清除浮动</h2>
+				<h3>1.clear:both</h3>
+				<div class="example no-margin-bottom">
+					<div class="outer-clear example-content">
+						<div class="inner-clear example-content"></div>
+						<div class="inner-clear example-content"></div>
+						<div class="inner-clear example-content"></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<h3>2.overflow:hidden</h3>
+				<div class="example no-margin-bottom">
+					<div class="outer-clear example-content outer-clear-2">
+						<div class="inner-clear example-content"></div>
+						<div class="inner-clear example-content"></div>
+						<div class="inner-clear example-content"></div>
+					</div>
+				</div>
+				<h3>3.:after</h3>
+				<div class="example">
+					<div class="outer-clear example-content outer-clear-3">
+						<div class="inner-clear example-content"></div>
+						<div class="inner-clear example-content"></div>
+						<div class="inner-clear example-content"></div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<h2>position的几个属性</h2>
+				<h3>1.static</h3>
+				<p class="content">默认属性，保持原来的位置</p>
+				<h3>2.relative</h3>
+				<p class="content">相对定位，相对于原来的位置</p>
+				<div class="example no-margin-bottom">
+					<div class="outer">
+						<div class="inner"></div>
+						<div class="inner inner-p-r"></div>
+					</div>
+				</div>
+				<h3>3.absolute</h3>
+				<p class="content">绝对定位，相对于position属性不是static的父元素或者窗口</p>
+				<div class="example no-margin-bottom">
+					<div class="outer outer-p-a">
+						<div class="inner"></div>
+						<div class="inner inner-p-a"></div>
+					</div>
+				</div>
+				<h3>4.fixed</h3>
+				<p class="content">固定，相对于窗口</p>
+				<div class="p-f">
+					<a href="#top">Top</a>
+				</div>
+			</article>
+			<article>
+				<h2>display的各个属性</h2>
+				<h3>1.block</h3>
+				<h3>2.inline</h3>
+				<h3>3.inline-block</h3>
+				<h3>4.none</h3>
+			</article>
+			<article>
+				<h2>只加margin:10px的li元素之间的距离</h2>
+				<div class="example">
+					<ul class="outer-m">
+						<li class="inner-m"></li>
+						<li class="inner-m"></li>
+						<li class="inner-m"></li>
+					</ul>
+				</div>
+			</article>
+			<article>
+				<h2>div水平和垂直居中的方法</h2>
+				<h3>1.常用div水平居中</h3>
+				<div class="example no-margin-bottom">
+					<div class="outer-h">
+						<div class="inner-h inner-h-1"></div>
+					</div>
+				</div>
+				<h3>2.知道尺寸的水平和垂直居中</h3>
+				<div class="example no-margin-bottom">
+					<div class="outer-h outer-h-2">
+						<div class="inner-h inner-h-2"></div>
+					</div>
+				</div>
+				<h3>3.不知道尺寸的水平和垂直居中</h3>
+				<div class="example">
+					<div class="outer-h outer-h-3">
+						<div class="inner-h inner-h-3"></div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<h2>font-size的单位</h2>
+				<h3>1.px:常用</h3>
+				<h3>2.em:相对于父元素</h3>
+				<h3>3.rem:相对于根元素</h3>
+			</article>
+			<article>
+				<h2>行内元素的盒模型概念</h2>
+				<h3>可以设置border、左右margin、padding，不能设置width、height、上下margin</h3>
+				<div class="example">
+					<div class="outer">
+						<span>&lt;span&gt;</span>
+					</div>
+				</div>
+			</article>
+			<article>
+				<h2>div元素在同一行显示的方法</h2>
+				<h3>1.float</h3>
+				<div class="example no-margin-bottom">
+					<div class="outer">
+						<div class="inner inner-f-1"></div>
+						<div class="inner inner-f-1"></div>
+						<div class="inner inner-f-1"></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<h3>2.inline-block</h3>
+				<div class="example">
+					<div class="outer">
+						<div class="inner inner-f-2"></div>
+						<div class="inner inner-f-2"></div>
+						<div class="inner inner-f-2"></div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<h2>CSS隐藏dom元素</h2>
+				<h3>1.display</h3>
+				<div class="example no-margin-bottom">
+					<div class="outer">
+						<div class="inner"></div>
+						<div class="inner disapear-1"></div>
+					</div>
+				</div>
+				<h3>2.visibility</h3>
+				<div class="example">
+					<div class="outer">
+						<div class="inner"></div>
+						<div class="inner disapear-2"></div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<h2>浏览器兼容性</h2>
+				<p class="content">1.-webkit- Chrome</p>
+				<p class="content">2.-moz- Firefox</p>
+				<p class="content">3.-ms- IE</p>
+				<p class="content">4.-o- Opera</p>
+			</article>
+		</div>
+	</main>
+
+	<script type="text/javascript">
+		function myFunctionAjax(){
+			var request=new XMLHttpRequest();
+			request.open("GET","test.txt",true);
+			request.send();
+			request.onreadystatechange=function(){
+				if(request.readyState===4 && request.status===200){
+					document.getElementById('example-ajax').innerHTML=request.responseText;
+				}
+			}
+		}
+		$(".btn-container").on("click",".btn",function(){
+			alert($(this).html());
+		})
+		function add(a){
+			var sum=0;
+			if(arguments.length===1){
+				return function(b){
+					sum=a+b;
+					document.getElementById('add-1').innerHTML=sum;
+				}
+			}
+			else{
+				for(var i=0;i<arguments.length;i++){
+					sum+=arguments[i];
+				}
+				document.getElementById('add-2').innerHTML=sum;
+			}
+		}
+		function myFunctionDirection(){
+			var a=document.getElementById('direction').innerHTML;
+			var b="";
+			for(var i=a.length-1;i>=0;i--){
+				b+=a[i];
+			}
+			document.getElementById('direction').innerHTML=b;
+		}
+	</script>
+</body>
+</html>

@@ -55,6 +55,9 @@ body{
 	width:100%;
 	height:100%;
 	background:$colorColumnBackground;
+	position:relative;
+	bottom: 0;
+	transition: 0.5s;
 	.infoTitle{
 		background: $colorColumnHead;
 		height: 40px;
@@ -65,10 +68,101 @@ body{
 		text-align: center;
 		cursor: pointer;
 	}
+	.infoContent{
+		padding: 10px;
+		.itemAttackers{
+			border-radius: 3px;
+			padding-left:10px;
+			box-sizing:border-box;
+			width: 100%;
+			height: 30px;
+			background: rgba(255,255,255,0.3);
+			margin-bottom: 10px;
+			font-family: arial;
+			font-size: 14px;
+			line-height: 30px;
+			color: #666;
+		}
+	}
+}
+.industries{
+	width:100%;
+	height:100%;
+	background:$colorColumnBackground;
+	position:relative;
+	bottom: 0;
+	transition: 0.5s;
+	.infoTitle{
+		background: $colorColumnHead;
+		height: 40px;
+		font-size: 20px;
+		font-family: arial;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.infoContent{
+		padding: 10px;
+		.itemIndustries{
+			border-radius: 3px;
+			padding-left:10px;
+			box-sizing:border-box;
+			width: 100%;
+			height: 30px;
+			background: rgba(232,67,67,0.3);
+			margin-bottom: 10px;
+			font-family: arial;
+			font-size: 14px;
+			line-height: 30px;
+			color: #fff;
+		}
+	}
 }
 #attackers{
-	width:400px;
-	height:400px;
-	position:fixed;
+	position: fixed;
+	left:0;
 	bottom:0;
+	width:40%;
+	height:300px;
+}
+#industries{
+	position: fixed;
+	right: 0;
+	bottom:0;
+	width:40%;
+	height:300px;
+}
+#links{
+	position:fixed;
+	top:200px;
+	right:0;
+	.link{
+		float: right;
+		width: 50px;
+		height: 50px;
+		margin-bottom:2px;
+		cursor: pointer;
+		text-align: center;
+		transition: 0.2s;
+	}
+	.link1{
+		background: #007bb6;
+	}
+	.link2{
+		background: #00acee;
+	}
+	.link3{
+		background: #3a5897;
+	}
+	.link4{
+		background: #dd4f43;
+	}
+	.link:hover{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+.clear{
+	clear:both;
 }
