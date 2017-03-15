@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>api test</title>
+</head>
+<body>
+	<button id="begin">click</button>
+</body>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#begin").click(function(){
+			var r=$.ajax({
+				url:"http://v.juhe.cn/weather/index?format=2&cityname=%E8%8B%8F%E5%B7%9E&key=c10c8e75e52fe3aac555390e6bbb700c",
+				type:"GET",
+				success:function(response){
+					var r=JSON.parse(response);
+					alert(r);
+				}
+			});
+		});
+	});
+</script>
+</html>
