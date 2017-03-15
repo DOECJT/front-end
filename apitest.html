@@ -12,7 +12,7 @@
 	$(document).ready(function(){
 		$("#begin").click(function(){
 			var r=$.ajax({
-				url:"http://v.juhe.cn/weather/index?format=2&cityname=%E8%8B%8F%E5%B7%9E&key=c10c8e75e52fe3aac555390e6bbb700c",
+				url:"https://api.openweathermap.org/data/2.5/weather?q=Shanghai",
 				type:"GET",
 				success:function(response){
 					var r=JSON.parse(response);
